@@ -1,16 +1,16 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
 import ButtonSaveOrCancel from "./ButtonSaveOrCancel";
+import EntryForm from "./EntryForm";
 
-const NewEntryForm = () => {
+const NewEntryForm = ({ addEntry, setDescription, setValue, setIsExpense, value, description, isExpense, }) => {
+
+    // console.log("typeof setDescription:", typeof setDescription);
     return (
         <div>
             <Form unstackable>
-                <Form.Group>
-                    <Form.Input icon='tags' label='Description' placeholder='Shiny things' width={12} />
-                    <Form.Input icon='dollar' label='Value' placeholder='100.00' width={4} iconPosition='left' />
-                </Form.Group>
-                <ButtonSaveOrCancel />
+                <EntryForm description={description} setDescription={setDescription} value={value} setValue={setValue} isExpense={isExpense} setIsExpense={setIsExpense} />
+                <ButtonSaveOrCancel addEntry={addEntry} />
             </Form>
         </div>
     );

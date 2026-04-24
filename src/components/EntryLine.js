@@ -1,6 +1,8 @@
 import React from "react";
 import { Grid, Segment, Icon } from "semantic-ui-react";
-const EntryLine = ({ description, value, isExpense = false }) => {
+// import ModalEdit from "./ModelEdit";
+const EntryLine = ({ id, description, value, isExpense = false, deleteEntry, editEntry }) => {
+    // const [isOpen, setIsOpen] = React.useState(false);
 
     return (
 
@@ -22,12 +24,13 @@ const EntryLine = ({ description, value, isExpense = false }) => {
                         {value}
                     </Grid.Column>
                     <Grid.Column width={3}>
-                        <Icon name="edit" bordered />
-                        <Icon name="trash" bordered />
+                        <Icon name="edit" bordered onClick={() => editEntry(id)} />
+                        <Icon name="trash" bordered onClick={() => deleteEntry(id)} />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
         </Segment>
+
 
     );
 }
